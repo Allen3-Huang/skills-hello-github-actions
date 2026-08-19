@@ -2,6 +2,19 @@
 
 _Nice work adding a job to your workflow! :dancer:_
 
+### 📖 Theory: About `secrets.GITHUB_TOKEN`
+
+`secrets.GITHUB_TOKEN` is a special secret that GitHub **automatically creates** for every workflow run — you don't need to set it up manually. It provides a temporary authentication token that lets your workflow interact with the GitHub API (for example, to post comments, create issues, or push code) without exposing any personal credentials.
+
+Key points:
+- It is scoped to the repository where the workflow runs.
+- Its permissions can be restricted using the `permissions` key in your workflow file (as shown in this exercise).
+- It expires when the workflow job finishes.
+- You reference it in your workflow with `${{ secrets.GITHUB_TOKEN }}`.
+
+> [!NOTE]
+> Learn more: [Automatic token authentication](https://docs.github.com/en/actions/security-for-github-actions/security-guides/automatic-token-authentication)
+
 ### 📖 Theory: Introduction to steps in jobs
 
 [Steps](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps) are the building blocks of jobs, allowing you to automate tasks like checking out code, running commands, or using open source Actions. They run sequentially in the job's environment but as independent processes. Unlike traditional code with a shared variable space, [inputs](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#inputs) and [outputs](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions) must be explicitly declared.
